@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <h1 class="text-info text-center my-5">Expense Tracker</h1>
+        <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+
+            <h3 class="text-primary text-center mt-5 mb-3">Set Monthly Budget</h3>
+
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="setBudget" placeholder="Set budget" aria-label="Set budget"
+                    aria-describedby="budgetHelp">
+
+                <button class="btn btn-outline-secondary" onclick="setBudget()" type="button"
+                    id="button-addon2">Set</button>
+
+            </div>
+            <div class="form-text text-warning">Note:- Setting Budget will clear all previous expenses.</div>
+
+
+
+
+            <h3 class="text-primary text-center mt-5 mb-3">Add Expense</h3>
+
+
+            <div class="mb-3">
+                <label for="expense" class="form-label text-secondary">Add Expense</label>
+                <input type="text" class="form-control" id="expense" aria-describedby="expenseHelp">
+
+            </div>
+            <div class="mb-3">
+                <label for="amount" class="form-label text-secondary">Amount(&#8377;)</label>
+                <input type="number" class="form-control" id="amount">
+            </div>
+
+            <button onClick="addBudget()" class="btn btn-primary">Add</button>
+
+
+            <!--------- Toast Msg for low budget --------------->
+            <div id="liveToast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body text-danger">
+                        Available Budget is Less for the Expense...
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+
+            <!-- --------End------- -->
+
+            <!--------- Toast Msg for empty values --------------->
+            <div id="liveToast1" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body text-danger">
+                        All Fields Are Mandatory.
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+
+            <!-- --------End------- -->
+
+            <div>
+
+
+                <div class="row  text-center my-5">
+
+                    <div class="col">
+                        <h3 class="text-success">Total Budget</h3>
+                        <h4 id="totalBudget" class="text-success"></h4>
+
+                    </div>
+
+
+                    <div class="col">
+                        <h3 class="text-danger">Available Budget</h3>
+                        <h4 id="availableBudget" class="text-danger"></h4>
+                    </div>
+
+                </div>
+
+
+                <h3 class="text-primary text-center mt-5 mb-3">Expense List</h3>
+                <button onclick="clearList()" class="btn btn-secondary btn-sm">Clear List</button>
+
+                <div class="container my-5" id="expenseContainer">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
